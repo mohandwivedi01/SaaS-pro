@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script> 
+    <script src="script.js"></script>
+</head>
+<body class="bg-">
+    
+    <!-- form section -->    
+     <div id="formData" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-center mb-4">User Data Form</h1>
+        <form onsubmit="submitForm(event)" id="userForm" class="space-y-4">
+            <div>
+                <label for="name" class="block text-lg font-bold">Name</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="email" class="block text-lg font-bold">Email</label>
+                <input type="text" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="phone" class="block text-lg font-bold">Phone</label>
+                <input type="text" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="age" class="block text-lg font-bold">Age</label>
+                <input type="text" id="age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="salary" class="block text-lg font-bold">Salary</label>
+                <input type="text" id="salary" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button onclick="submitForm()" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 cursor-pointer">Submit</button>
+        </form>
+        <div class="flex justify-space-between mt-4">
+            <button onclick="showData()" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 cursor-pointer">Show Data</button>
+        </div>
+     </div>
+     
+       <!-- User Data Table Section -->
+    <div id="userData" class="max-w-4xl mx-auto mt-10 bg-white p-6 rounded-lg shadow-lg hidden ">
+        <h2 class="text-2xl font-bold mb-4">User Data</h2>
+        <button onclick="fetchUserData()" class="mb-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 cursor-pointer">
+        Refresh Data
+        </button>
+        <button onclick="showForm()" class="mb-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 cursor-pointer">
+        Go to Form
+        </button>
+        <table class="w-full table-auto border-collapse">
+        <thead>
+            <tr class="bg-gray-200 text-left">
+            <th class="px-4 py-2">#</th>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Email</th>
+            <th class="px-4 py-2">Phone</th>
+            <th class="px-4 py-2">Age</th>
+            <th class="px-4 py-2">Salary</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+        </table>
+    </div>
+    </body>
+</html>
